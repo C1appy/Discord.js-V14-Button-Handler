@@ -42,7 +42,7 @@ module.exports = (client) => {
   client.on(`interactionCreate`, async (interaction) => {
     if (interaction.isButton()) {
       var cmd = client.Buttons.get(interaction.customId);
-
+      if (cmd)
       if (!interaction.member.permissions.has(cmd.userPermissions || [])) {
         const UserNoPerms = new EmbedBuilder()
           .setColor("Red")
